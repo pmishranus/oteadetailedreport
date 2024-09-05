@@ -53,6 +53,14 @@
 			"entryPath": "/nusbtpbl/odata"
 		},
 		"description": "NUS BTP Business Logic Destiantion"
+	}, {
+		"path": "/eclaims",
+		"target": {
+			"type": "destination",
+			"name": "nusbtpeclaim",
+			"entryPath": "/v2/eclaims"
+		},
+		"description": "NUS BTP Business Logic Destiantion"
 	},
 
  {

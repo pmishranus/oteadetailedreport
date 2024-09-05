@@ -9,64 +9,67 @@ sap.ui.define([
 
 		fetchLoggedUserToken: function (sThis, callBackFx) {
 			var that = this;
-			var userModel = new sap.ui.model.json.JSONModel();
-			userModel.loadData("/services/userapi/currentUser", null, false);
-			sap.ui.getCore().setModel(userModel, "userapi");
-			userModel.dataLoaded().then(function () {
-				var sUserName = sap.ui.getCore().getModel("userapi").getData().name;
-				// sUserName = "OT_VF9"; //VERFIER
-				 //sUserName = "CCEKSSS"; //CA
-				 //sUserName = "UID53713";
-				 sUserName = "PTT_CA1";
-				sThis.AppModel.setProperty("/loggedInUserId", sUserName);
-				that._getUserDetails(sThis, that, sUserName, callBackFx);
-			}.bind(sThis));
+			// var userModel = new sap.ui.model.json.JSONModel();
+			// userModel.loadData("/services/userapi/currentUser", null, false);
+			// sap.ui.getCore().setModel(userModel, "userapi");
+			// userModel.dataLoaded().then(function () {
+			// var sUserName = sap.ui.getCore().getModel("userapi").getData().name;
+			// sUserName = "OT_VF9"; //VERFIER
+			//sUserName = "CCEKSSS"; //CA
+			//sUserName = "UID53713";
+			//sUserName = "UID53713";
+			// sThis.AppModel.setProperty("/loggedInUserId", sUserName);
+			// sUserName = "";
+			that._getUserDetails(sThis, that, callBackFx);
+			// }.bind(sThis));
 		},
 
-		_getUserDetails: function (sThis, that, sUserName, callBackFx) {
-		var oHeaders = {
-                    "Content-Type": "application/json"
-                };
-                var oPayload = {
-                    "userName": sUserName
-                };
-			var sUrl = Config.dbOperations.eclaimAuthToken;
-			var authModel = new JSONModel();
-			authModel.loadData(sUrl, JSON.stringify(oPayload), null, "POST", false, false,oHeaders);
+		_getUserDetails: function (sThis, that, callBackFx) {
+			var userDetails = that.getUserInfoDetails();
+			// var oHeaders = {
+			// 	"Content-Type": "application/json"
+			// };
+			// var oPayload = {
+			// 	"userName": sUserName
+			// };
+			// var sUrl = Config.dbOperations.eclaimAuthToken;
+			// var authModel = new JSONModel();
+			// authModel.loadData(sUrl, JSON.stringify(oPayload), null, "POST", false, false, oHeaders);
 
-			authModel.attachRequestCompleted(function (oResponse) {
-				if (oResponse.getParameters().success) {
-					if (oResponse.getSource().getProperty("/token")) {
-						var userDetails = that.getUserInfoDetails(oResponse.getSource().getProperty("/token"));
-						Object.assign(userDetails, oResponse.getSource().getData());
-						callBackFx(userDetails);
-						// callBackFx(oResponse.getSource().getData());
-					}
-				} else {
-					if (oResponse.getParameters()['errorobject'].statusCode === 503) {
-						sThis.AppModel.setProperty("/ErrorPageDescription", oResponse.getParameters()['errorobject'].responseText);
-						// sap.m.MessageBox.error(oResponse.getParameters()['errorobject'].responseText);
-						sThis.AppModel.setProperty("/ErrorPageTitle", "Service Maintenance");
-						sThis.AppModel.setProperty("/ErrorPageText", "Please reach out to the admin team if not started working in next 10 minutes.");
-						sThis.oRouter.navTo("NotFound", true);
-						return;
-					}
-				}
+			// authModel.attachRequestCompleted(function (oResponse) {
+			// 	if (oResponse.getParameters().success) {
+			// 		if (oResponse.getSource().getProperty("/token")) {
+			// 			var userDetails = that.getUserInfoDetails(oResponse.getSource().getProperty("/token"));
+			// Object.assign(userDetails, oResponse.getSource().getData());
+			callBackFx(userDetails);
+			// 			// callBackFx(oResponse.getSource().getData());
+			// 		}
+			// 	} else {
+			// 		if (oResponse.getParameters()['errorobject'].statusCode === 503) {
+			// 			sThis.AppModel.setProperty("/ErrorPageDescription", oResponse.getParameters()['errorobject'].responseText);
+			// 			// sap.m.MessageBox.error(oResponse.getParameters()['errorobject'].responseText);
+			// 			sThis.AppModel.setProperty("/ErrorPageTitle", "Service Maintenance");
+			// 			sThis.AppModel.setProperty("/ErrorPageText", "Please reach out to the admin team if not started working in next 10 minutes.");
+			// 			sThis.oRouter.navTo("NotFound", true);
+			// 			return;
+			// 		}
+			// 	}
 
-			}.bind(sThis));
+			// }.bind(sThis));
 		},
 
 
 		getUserInfoDetails: function (userToken) {
-			var userInfoModel = new JSONModel();
-			var oHeaders = {
-				"Accept": "application/json",
-				"Authorization": "Bearer" + " " + userToken,
-				"AccessPoint": "A",
-				"Content-Type": "application/json"
-			};
-			userInfoModel.loadData(Config.dbOperations.userDetails, null, false, "GET", false, false, oHeaders);
-			return userInfoModel.getData();
+			// var userInfoModel = new JSONModel();
+			// var oHeaders = {
+			// 	"Accept": "application/json",
+			// 	// "Authorization": "Bearer" + " " + userToken,
+			// 	// "AccessPoint": "A",
+			// 	"Content-Type": "application/json"
+			// };
+			// userInfoModel.loadData(Config.dbOperations.userDetails, null, false, "GET", false, false, oHeaders);
+			// return userInfoModel.getData();
+			
 		},
 
 		fetchLoggeInUserImage: function (sThis, callBackFx) {
@@ -124,7 +127,7 @@ sap.ui.define([
 						// that.getView().byId("itfProcess").setCount(oData);
 					}
 				},
-				error: function (oError) {}
+				error: function (oError) { }
 			});
 		},
 		_loadDataUsingJsonModel: function (serviceUrl, oPayload, httpMethod, headers, callBackFx) {
