@@ -240,7 +240,7 @@ sap.ui.define([
 
 		handleSearchRequestId: function (oEvent) {
 
-			var oDataModel = this.getOwnerComponent().getModel("EclaimSrvModel");
+			var oDataModel = this.getOwnerComponent().getModel("Eclaims");
 			//var uluFdluFilter;// = [];
 			var orFilter = [];
 			var andFilter = [];
@@ -302,7 +302,7 @@ sap.ui.define([
 			if (userRoleGrp === "NUS_CHRS_ECLAIMS_SUPER_ADMIN" || (!!claimAuthorizations && claimAuthorizations.length > 0)) {
 				var that = this;
 
-				oDataModel.read("/EclaimRequestViews", {
+				oDataModel.read("/v_eclaim_request_view", {
 					filters: [filtersGrp],
 					urlParameters: {
 						"$select": "REQUEST_ID"
