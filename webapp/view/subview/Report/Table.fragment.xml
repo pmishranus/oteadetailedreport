@@ -164,7 +164,7 @@
 						<Text text="{Eclaims>FDLU_T}"/>
 						<!--</VBox>-->
 						<Text text="{Eclaims>EMP_GP_T}"/>
-						<Text text="{ path: 'EclaimSrvModel>DATE_JOINED', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>DATE_JOINED', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<Text text="{Eclaims>CLAIM_WEEK_NO}"/>
 						<!--<Text text="{Eclaims>RATE_DESC}"/>-->
 						<Text text="{Eclaims>CLAIM_START_DATE}"/>
@@ -179,32 +179,32 @@
 						<Text text="{Eclaims>WBS}"/>
 						<Text text="{Eclaims>REMARKS}"/>
 						<!--<Text text="{Eclaims>SUBMITTED_ON}"/>-->
-						<Text text="{ path: 'EclaimSrvModel>CREATED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>CREATED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<Text text="{Eclaims>SUBMITTED_BY}"/>
 						<!--<Text text="{Eclaims>VERIFIED_ON}"/>-->
-						<Text text="{ path: 'EclaimSrvModel>VERIFIED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>VERIFIED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<Text text="{Eclaims>VERIFIER_STAFF_ID}"/>
 						<Text text="{Eclaims>VERIFIER_STAFF_FULL_NAME}"/>
 						<Text text="{Eclaims>ADD_APP_1_STAFF_ID}"/>
 						<Text text="{Eclaims>ADD_APP_1_STAFF_FULL_NAME}"/>
 						<!--<Text text="{Eclaims>ADD_APRV_1_ON}"/>-->
-						<Text text="{ path: 'EclaimSrvModel>ADD_APRV_1_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>ADD_APRV_1_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<Text text="{Eclaims>ADDITIONAL_APP_2_STAFF_ID}"/>
 						<Text text="{Eclaims>ADDITIONAL_APP_2_STAFF_FULL_NAME}"/>
 						<!--<Text text="{Eclaims>ADD_APRV_2_ON}"/>-->
-						<Text text="{ path: 'EclaimSrvModel>ADD_APRV_2_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>ADD_APRV_2_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<!--<Text text="{Eclaims>APPROVED_ON}"/>-->
-						<Text text="{ path: 'EclaimSrvModel>APPROVED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
+						<Text text="{ path: 'Eclaims>APPROVED_ON', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' } }"/>
 						<Text text="{Eclaims>APPROVED_BY}"/>
 						<Text text="{Eclaims>APPROVER_STAFF_FULL_NAME}"/>
 						<Text text="{Eclaims>CA_REMARKS}"/>
 						<Text text="{Eclaims>VERIFIER_REMARKS}"/>
 						<Text text="{Eclaims>APP_REMARKS}"/>
 						<!--<Text-->
-						<!--	text="{parts:[{path: 'EclaimSrvModel>CLAIM_MONTH'}, {path: 'EclaimSrvModel>CLAIM_YEAR'}], formatter : '.formatter.convertMonthcodeToName'}"/>-->
+						<!--	text="{parts:[{path: 'Eclaims>CLAIM_MONTH'}, {path: 'Eclaims>CLAIM_YEAR'}], formatter : '.formatter.convertMonthcodeToName'}"/>-->
 						<!--<VBox>-->
-						<!--	<Text text="{ path: 'EclaimSrvModel>CREATED_ON', type: 'sap.ui.model.type.DateTime', formatOptions: { pattern: 'd MMM, yyyy HH:mm:ss' } }"/>-->
-						<!--	<Text text="{ path: 'EclaimSrvModel>SUBMITTED_BY_NID'}"/>-->
+						<!--	<Text text="{ path: 'Eclaims>CREATED_ON', type: 'sap.ui.model.type.DateTime', formatOptions: { pattern: 'd MMM, yyyy HH:mm:ss' } }"/>-->
+						<!--	<Text text="{ path: 'Eclaims>SUBMITTED_BY_NID'}"/>-->
 						<!--</VBox>-->
 						<!--<Button icon="sap-icon://instance" press="onPressProcessInstance"/>-->
 					</cells>
